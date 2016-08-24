@@ -1,0 +1,13 @@
+# ReactNative-
+Navigator组件中configureScene函数的用途是告知Navigator模块我们希望在视图转换时使用何种效果。 
+renderScene函数用来告知Navigator模块我们希望如何挂接当前的视图. 
+componentDidMount和 componentWillUnmount函数是React框架的两个生命周期的函数,NaviModule组件实现了这两个函数后,当这个组件被挂接到当前页面或者被移除时,这两个函数会被调用.
+
+绘制原理
+
+当navigator的push函数(或者replace函数,区别见代码注释) 被调用后,通过React Native的Navigator组件的工作机制,NaviModule的renderScene函数将被调用,并且push函数传入的变量成为renderScene函数的第一个参数. 
+当name等于 waiting时, 将WaitingLeaf模块挂接上去. 当name等于register时, RegisterLeaf模块被挂载上去.
+
+属性总结
+
+本节对属性做一个总结, 属性用于React Native组件外界向组件内传递变量或者数据.通过this.props属性来访问. 当属性的取值在组件外界被改变时,如果属性被组件中的UI以某种方式显示出来,则显示也会相应的发生改变. 在React Native组件内部,我们不可用对属性进行赋值操作,这种做法会导致运行时出错.
